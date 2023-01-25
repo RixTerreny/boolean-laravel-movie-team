@@ -8,7 +8,12 @@ use App\Models\Movie;
 
 class PageController extends Controller
 {
+
     public function index(){
-        return view('index');
+        
+        $movies = Movie::all()
+            ->sortBy("anno_uscita");
+        /* $movieslast = Movie::where(); */
+        return view('index',compact("movies"));
     }
 }
